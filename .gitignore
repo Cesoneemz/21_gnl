@@ -1,5 +1,9 @@
 *.idea
+*.vscode
+
+vgcore.*
 cmake-build-debug
+.ccls-cache
 
 *.txt
 *.exe

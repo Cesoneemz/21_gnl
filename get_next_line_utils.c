@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/27 00:45:36 by wlanette          #+#    #+#             */
+/*   Updated: 2021/10/27 00:47:09 by wlanette         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
@@ -25,7 +37,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*buffer;
 	int		s1len;
@@ -40,58 +52,23 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (buffer == NULL)
 		return (NULL);
 	index = 0;
-	while (*s1 != '\0')
-	{
-		buffer[index] = *s1++;
-		index++;
-	}
-	while (*s2 != '\0')
-	{
-		buffer[index] = *s2++;
-		index++;
-	}
-	buffer[index] = '\0';
-	return (buffer);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	char			*buffer;
-	unsigned int	strlen;
-	unsigned int	index;
-
-	strlen = ft_strlen(s1);
-	buffer = malloc((strlen + 1) * sizeof(char));
-	if (buffer == NULL)
-		return (NULL);
-	index = 0;
-	while (*s1 != '\0')
+	while (*s1)
 		buffer[index++] = *s1++;
+	while (*s2)
+		buffer[index++] = *s2++;
 	buffer[index] = '\0';
 	return (buffer);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strnew(size_t size)
 {
-	char		*substr;
-	char		*str;
-	size_t		index;
-	size_t		str_len;
+	char	*buffer;
 
-	if (!s)
+	buffer = (char *)malloc((size + 1) * sizeof(char));
+	if (!buffer)
 		return (NULL);
-	str_len = ft_strlen(s);
-	if (start > str_len)
-		return (ft_strdup(""));
-	if (str_len < len)
-		len = str_len - start;
-	substr = (char *)malloc((len + 1) * sizeof(char));
-	if (substr == NULL)
-		return (NULL);
-	index = 0;
-	str = (char *)(s + start);
-	while (*str != '\0' && len--)
-		substr[index++] = *str++;
-	substr[index] = '\0';
-	return (substr);
+	buffer[size] = '\0';
+	while (size--)
+		buffer[size] = '\0';
+	return (buffer);
 }
