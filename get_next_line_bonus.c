@@ -98,7 +98,7 @@ static char	*ft_read_from_file(char fd, char *read_file)
 char	*get_next_line(int fd)
 {
 	char				*line;
-	static char			*read_file[4096];
+	static char			*read_file[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
