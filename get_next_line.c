@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:45:21 by wlanette          #+#    #+#             */
-/*   Updated: 2021/10/27 16:51:10 by wlanette         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:45:15 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static char	*ft_read_from_file(char fd, char *read_file)
 	return (read_file);
 }
 
-char	*get_next_line(char fd)
+char	*get_next_line(int fd)
 {
 	static char	*read_file;
 	char		*line;

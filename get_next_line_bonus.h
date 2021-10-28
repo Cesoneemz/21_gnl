@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:45:26 by wlanette          #+#    #+#             */
-/*   Updated: 2021/10/27 16:29:07 by wlanette         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:41:52 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_gnl
 	struct s_gnl		*next;
 }				t_gnl;
 
-char	*get_next_line(char fd);
+char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);

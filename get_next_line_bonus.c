@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:45:21 by wlanette          #+#    #+#             */
-/*   Updated: 2021/10/27 16:36:21 by wlanette         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:41:32 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,27 +95,17 @@ static char	*ft_read_from_file(char fd, char *read_file)
 	return (read_file);
 }
 
-char	*get_next_line(char fd)
+char	*get_next_line(int fd)
 {
 	char				*line;
-	static t_gnl		*head;
-	t_gnl				*tmp;
+	static char			*read_file[4096];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (head == NULL)
-		head = ft_create_new_list(fd);
-	tmp = head;
-	while (tmp->fd != fd)
-	{
-		if (tmp->next == NULL)
-			tmp->next = ft_create_new_list(fd);
-		tmp = tmp->next;
-	}
-	tmp->read_file = ft_read_from_file(tmp->fd, tmp->read_file);
-	if (!tmp->read_file)
+	read_file[fd] = ft_read_from_file(fd, read_file[fd]);
+	if (!read_file[fd])
 		return (NULL);
-	line = ft_get_line(tmp->read_file);
-	tmp->read_file = ft_read_file_remaind(tmp->read_file);
+	line = ft_get_line(read_file[fd]);
+	read_file[fd] = ft_read_file_remaind(read_file[fd]);
 	return (line);
 }
