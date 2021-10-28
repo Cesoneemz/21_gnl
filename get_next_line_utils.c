@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:45:36 by wlanette          #+#    #+#             */
-/*   Updated: 2021/10/27 00:47:09 by wlanette         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:46:23 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,5 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (*s2)
 		buffer[index++] = *s2++;
 	buffer[index] = '\0';
-	return (buffer);
-}
-
-char	*ft_strnew(size_t size)
-{
-	char	*buffer;
-
-	buffer = (char *)malloc((size + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	buffer[size] = '\0';
-	while (size--)
-		buffer[size] = '\0';
 	return (buffer);
 }
