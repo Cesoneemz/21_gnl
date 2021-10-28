@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 00:45:36 by wlanette          #+#    #+#             */
-/*   Updated: 2021/10/28 03:48:25 by wlanette         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:50:31 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,3 @@ char	*ft_strnew(size_t size)
 		buffer[size] = '\0';
 	return (buffer);
 }
-
